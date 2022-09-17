@@ -1,0 +1,107 @@
+
+:root{
+    --bg-color:rgba(8, 2, 17, 1);
+    --color-primary:rgba(175, 5, 255, 1);
+    --color-secundary:rgba(45, 66, 255, 1);
+}
+
+
+@mixin alignCenter {
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: currentColor;
+}
+
+body{
+    background-color: var(--bg-color);
+    color: white;
+    font-family: sans-serif;
+    height: auto;
+    max-height: 100vh;
+    overflow-x: hidden;
+}
+
+footer{
+    text-align: center;
+}
+
+.circle-blur{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: rgba(175, 5, 255, 1);
+    filter: blur(80px);
+    position: absolute;
+    z-index: -10;
+}
+.circle-blur_2{
+    right:0rem;
+    transform: translateY(10rem);
+    background-color: var(--color-secundary);
+}
+.circle-blur_3{
+    bottom: 0rem;
+    transform: translate(-5rem, 6rem);
+}
+
+.container{
+    max-width: 400px;
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem .5rem;
+    gap: 4rem;
+
+    .container-profile{
+        @include alignCenter();
+        gap: 2rem;
+        .contain-image{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--color-secundary);
+            overflow: hidden;
+            box-shadow: 0 0 8px rgba(45, 66, 255, 0.434);
+            img{
+                    width: 100%;
+                    transform: scale(1.1)
+                }
+            }
+    }
+
+    .links-list{
+        @include alignCenter();
+        gap: 1rem;
+
+        .link-item{
+            display: flex;
+            width: 90%;
+            background-color: #d7dbff34;
+            backdrop-filter: blur(6px);
+            border-radius: 6px;
+            padding: 1rem;
+            justify-content: space-between;
+            font-weight: 600;
+
+            &:hover{
+                background-color: #d7dbff3d;
+            }
+
+            i{
+                color: var(--color-primary);
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
